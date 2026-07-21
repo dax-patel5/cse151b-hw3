@@ -38,10 +38,11 @@ python main.py --task baseline
 python main.py --task custom --reinit_n_layers 2
 
 # Task 3: contrastive learning — SupContrast loss + jointly-trained classifier head
-python main.py --task supcon --batch-size 32
+# (batch size 64 is the graded configuration in the results table below)
+python main.py --task supcon --batch-size 64
 
 # Task 3 variant: SimCLR (unsupervised) loss instead of SupContrast
-python main.py --task supcon --batch-size 32 --contrast-loss simclr
+python main.py --task supcon --batch-size 64 --contrast-loss simclr
 ```
 
 Or run all three via the shell script:

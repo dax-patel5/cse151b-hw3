@@ -10,8 +10,9 @@ python main.py --task baseline
 # Task 2: custom fine-tuning technique (e.g. reinitialize the last N encoder layers).
 python main.py --task custom --reinit_n_layers 2
 
-# Task 3: contrastive learning (SupContrast / SimCLR). Larger batches usually help.
-python main.py --task supcon --batch-size 32
+# Task 3: contrastive learning (SupContrast / SimCLR). Larger batches usually help;
+# batch size 64 is the graded configuration.
+python main.py --task supcon --batch-size 64
 
 # [AI Assisted: Claude Code] Variants of task 3:
 #   SimCLR (unsupervised) loss instead of SupContrast:

@@ -1,0 +1,24 @@
+Namespace(task='supcon', reinit_n_layers=0, contrast_loss='simclr', temperature=0.07, input_dir='assets', output_dir='results', model='bert', seed=42, dataset='amazon', ignore_cache=False, debug=False, log_interval=500, do_train=False, do_eval=False, batch_size=64, learning_rate=2e-05, hidden_dim=768, drop_rate=0.1, embed_dim=768, adam_epsilon=1e-08, n_epochs=10, max_len=20, n_gpu=1, save_dir='results/supcon')
+validation accuracy: 0.09444171175602557, | dataset split validation size: 2033
+test accuracy: 0.08507061197041023, | dataset split test size: 2974
+validation accuracy: 0.5946876537137236, | dataset split validation size: 2033
+epoch 0 | losses 723.067146897316
+validation accuracy: 0.8780127889818002, | dataset split validation size: 2033
+epoch 1 | losses 225.64999377727509
+validation accuracy: 0.9075258239055582, | dataset split validation size: 2033
+epoch 2 | losses 101.25856813788414
+validation accuracy: 0.9134284308903099, | dataset split validation size: 2033
+epoch 3 | losses 65.28519783914089
+validation accuracy: 0.912444663059518, | dataset split validation size: 2033
+epoch 4 | losses 47.149526819586754
+validation accuracy: 0.9188391539596655, | dataset split validation size: 2033
+epoch 5 | losses 36.14532804489136
+validation accuracy: 0.9173635022134776, | dataset split validation size: 2033
+epoch 6 | losses 29.32516071945429
+validation accuracy: 0.9188391539596655, | dataset split validation size: 2033
+epoch 7 | losses 24.65210784226656
+validation accuracy: 0.9188391539596655, | dataset split validation size: 2033
+epoch 8 | losses 21.82661148905754
+validation accuracy: 0.9193310378750615, | dataset split validation size: 2033
+epoch 9 | losses 20.465618140995502
+test accuracy: 0.9193006052454606, | dataset split test size: 2974

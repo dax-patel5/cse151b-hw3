@@ -1,0 +1,13 @@
+# [AI Assisted: Claude Code]
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# dataset + tokenized feature cache (auto-downloaded on first run)
+assets/
+
+# training outputs (regenerated every run; submit separately, not via git)
+results/
+
+.DS_Store

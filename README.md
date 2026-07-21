@@ -19,6 +19,11 @@ pip install -r requirements.txt
 The dataset (`mteb/amazon_massive_scenario`, English split) downloads automatically
 into `assets/` on first run; tokenized features are cached under `assets/cache/`.
 
+**UCSD DSMLP/datahub note:** the stock conda environment already has everything
+needed (torch, transformers, datasets) — no installs required. If imports fail with
+`operator torchvision::nms does not exist`, a stale torch in `~/.local` is shadowing
+the conda one; fix with `export PYTHONNOUSERSITE=1` before running.
+
 ## How to run
 
 Each command runs eval (untrained sanity check) -> training -> final test eval, and
@@ -94,6 +99,10 @@ whole classes together while SimCLR's only positives are the two dropout views o
 the same sentence. Batch size has a modest, non-monotonic effect on SupCon — larger
 batches provide more negatives per step, but with epochs fixed they also mean fewer
 optimizer steps, and the two effects roughly cancel.
+
+Full training logs: the graded runs are `results/<task>/<task>.txt`; the exploration
+runs are kept alongside as `results/supcon/supcon_bs16.txt`, `supcon_bs128.txt`,
+and `supcon_simclr_bs64.txt`.
 
 ## Results files
 

@@ -78,6 +78,23 @@ bash run.sh
   is trained jointly with cross-entropy; `forward()` returns those logits so the
   shared `run_eval` works unchanged.
 
+## Results (UCSD Datahub, NVIDIA A30, 10 epochs each)
+
+| experiment | test accuracy |
+|---|---|
+| baseline (bs16) | 0.9156 |
+| custom: re-init top 2 layers (bs16) | 0.9159 |
+| **supcon: SupContrast (bs64)** — graded run | **0.9206** |
+| supcon: SupContrast (bs16) | 0.9203 |
+| supcon: SupContrast (bs128) | 0.9176 |
+| supcon: SimCLR (bs64) | 0.9193 |
+
+Observations: SupCon slightly outperforms SimCLR, as its label-aware positives pull
+whole classes together while SimCLR's only positives are the two dropout views of
+the same sentence. Batch size has a modest, non-monotonic effect on SupCon — larger
+batches provide more negatives per step, but with epochs fixed they also mean fewer
+optimizer steps, and the two effects roughly cancel.
+
 ## Results files
 
 Do not modify the code writing `results/[task]/[task].txt` — the autograder uses it.

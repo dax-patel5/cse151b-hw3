@@ -110,3 +110,36 @@ and `supcon_simclr_bs64.txt`.
 Do not modify the code writing `results/[task]/[task].txt` — the autograder uses it.
 Each file records the argparse config, per-epoch training loss, validation accuracy
 per epoch, and test accuracy before/after training.
+
+## AI usage disclosure
+
+Code sections marked with `[AI Assisted: Claude Code]` comments were written with
+the help of Claude Code (Fable 5), as permitted by the course policy. Every added
+block carries the tag, so `grep -rn "AI Assisted" *.py` shows exactly what was
+AI-written; the untagged starter code is unchanged.
+
+Here are some of the prompts I used:
+
+"Do this homework entirely. Any code you add must be tagged with [AI Assisted:
+Claude Code]. Once you are done writing the models, start training only to ensure
+that it works. I will then wire this up to a git repo and train models on ucsd
+datahub."
+
+"push the current repo to this remote. after that, i will go to datahub. give me a
+bunch of diagnostic commands (what version, what venv, etc) commands to run after
+cloning this repo at root of datahub and cding into it. based on the response from
+datahub here, you will construct the commands for the actual training runs."
+
+My workflow: Claude wrote the implementation task-by-task (tokenizer, feature prep,
+the three model classes, the three training loops) and I checked each code addition
+step by step against the assignment PDF before moving on. Claude smoke-tested
+everything locally in a debug mode before any GPU time was spent. For the real
+training I ran the commands myself on UCSD datahub, pasting outputs back: Claude
+built the environment diagnostics, diagnosed a broken torch import on the pod (a
+stale `~/.local` torch shadowing the conda one, fixed with `PYTHONNOUSERSITE=1`),
+and constructed the exact training commands. When the graded runs cleared the
+thresholds, Claude suggested the optional exploration runs (SimCLR variant and the
+batch-size sweep), which I then ran; the observations in the Results section came
+out of discussing those numbers. There were also smaller prompts around git/GitHub
+setup, log bookkeeping, and this README. I had no code-quality concerns and did not
+manually edit the code.

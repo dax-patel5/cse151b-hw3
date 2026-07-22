@@ -11,3 +11,4 @@ assets/
 results/
 
 .DS_Store
+*.zip
